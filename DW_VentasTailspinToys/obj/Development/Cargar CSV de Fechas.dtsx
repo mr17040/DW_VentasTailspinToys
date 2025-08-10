@@ -1,0 +1,704 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/10/2025 5:03:41 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-L1NSP6A"
+  DTS:CreatorName="DESKTOP-L1NSP6A\Nancy"
+  DTS:DTSID="{CE16F4FD-4AD8-415A-AEC5-D6C4679AA9F7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Cargar CSV de Fechas"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{40362069-4459-4EEB-8FFF-4D44EA54265B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Leer dimFechas.csv]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{4A16CC08-C6CE-4A5F-99EB-11CA5B9FA926}"
+      DTS:ObjectName="Leer dimFechas.csv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="3082"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\DW_VentasTailspinToys\dimFechas.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="fechaKey"
+              DTS:DTSID="{022FCD06-D148-488D-A164-36A432D54A8D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="fechaCompleta"
+              DTS:DTSID="{5D00C5B9-DADE-41F4-B2B4-15BDC63AA562}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="dia"
+              DTS:DTSID="{CC228915-2C69-426D-B27C-EFA39588E597}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="mes"
+              DTS:DTSID="{3AED9F20-9CFF-482E-949F-6A4E2BB888DA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="diaN"
+              DTS:DTSID="{AC49F27B-A259-48BC-9CB6-8774B41F0660}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="trimestre"
+              DTS:DTSID="{73F694DC-5740-4DC6-8A5B-70BE0CC3CA48}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="anio"
+              DTS:DTSID="{F4B085B1-B186-4C75-B17E-ADA72CFDEFB6}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.DW_VentasTailspinToys]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{6CBEBA83-C92C-4FAA-916D-C44B3C505AC9}"
+      DTS:ObjectName="localhost.DW_VentasTailspinToys">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=DW_VentasTailspinToys;Integrated Security=True;Application Name=SSIS-Cargar CSV de Fechas-{6CBEBA83-C92C-4FAA-916D-C44B3C505AC9}localhost.DW_VentasTailspinToys;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Cargar Fechas CSV a dimFecha"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{93499DA4-2A96-4AF8-A9AB-40856E2AEB64}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Cargar Fechas CSV a dimFecha"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="Cargar datos a dimFecha"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."dimFecha"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.DW_VentasTailspinToys]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.DW_VentasTailspinToys]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET].Columns[fechaKey]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="fechaKey"
+                      externalMetadataColumnId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET].ExternalColumns[fechaKey]"
+                      lineageId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].Columns[fechaKey]" />
+                    <inputColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET].Columns[fechaCompleta]"
+                      cachedDataType="date"
+                      cachedName="fechaCompleta"
+                      externalMetadataColumnId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET].ExternalColumns[fechaCompleta]"
+                      lineageId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].Columns[fechaCompleta]" />
+                    <inputColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET].Columns[dia]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="dia"
+                      externalMetadataColumnId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET].ExternalColumns[dia]"
+                      lineageId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].Columns[dia]" />
+                    <inputColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET].Columns[mes]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="mes"
+                      externalMetadataColumnId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET].ExternalColumns[mes]"
+                      lineageId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].Columns[mes]" />
+                    <inputColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET].Columns[diaN]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="diaN"
+                      externalMetadataColumnId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET].ExternalColumns[diaN]"
+                      lineageId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].Columns[diaN]" />
+                    <inputColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET].Columns[trimestre]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="trimestre"
+                      externalMetadataColumnId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET].ExternalColumns[trimestre]"
+                      lineageId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].Columns[trimestre]" />
+                    <inputColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET].Columns[anio]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="anio"
+                      externalMetadataColumnId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET].ExternalColumns[anio]"
+                      lineageId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].Columns[anio]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET].ExternalColumns[fechaKey]"
+                      dataType="i4"
+                      name="fechaKey" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET].ExternalColumns[fechaCompleta]"
+                      dataType="dbTimeStamp"
+                      name="fechaCompleta" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET].ExternalColumns[dia]"
+                      dataType="wstr"
+                      length="20"
+                      name="dia" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET].ExternalColumns[diaN]"
+                      dataType="wstr"
+                      length="20"
+                      name="diaN" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET].ExternalColumns[mes]"
+                      dataType="wstr"
+                      length="20"
+                      name="mes" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET].ExternalColumns[trimestre]"
+                      dataType="wstr"
+                      length="20"
+                      name="trimestre" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET].ExternalColumns[anio]"
+                      dataType="wstr"
+                      length="20"
+                      name="anio" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="3082"
+              name="Leer CSV dimFechas"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Leer dimFechas.csv]"
+                  connectionManagerRefId="Package.ConnectionManagers[Leer dimFechas.csv]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].Columns[fechaKey]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].ExternalColumns[fechaKey]"
+                      length="50"
+                      lineageId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].Columns[fechaKey]"
+                      name="fechaKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].Columns[fechaCompleta]"
+                      dataType="date"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].ExternalColumns[fechaCompleta]"
+                      lineageId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].Columns[fechaCompleta]"
+                      name="fechaCompleta"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].Columns[dia]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].ExternalColumns[dia]"
+                      length="50"
+                      lineageId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].Columns[dia]"
+                      name="dia"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].Columns[mes]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].ExternalColumns[mes]"
+                      length="50"
+                      lineageId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].Columns[mes]"
+                      name="mes"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].Columns[diaN]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].ExternalColumns[diaN]"
+                      length="50"
+                      lineageId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].Columns[diaN]"
+                      name="diaN"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].Columns[trimestre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].ExternalColumns[trimestre]"
+                      length="50"
+                      lineageId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].Columns[trimestre]"
+                      name="trimestre"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].Columns[anio]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].ExternalColumns[anio]"
+                      length="50"
+                      lineageId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].Columns[anio]"
+                      name="anio"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].ExternalColumns[fechaKey]"
+                      dataType="wstr"
+                      length="50"
+                      name="fechaKey" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].ExternalColumns[fechaCompleta]"
+                      dataType="date"
+                      name="fechaCompleta" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].ExternalColumns[dia]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="dia" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].ExternalColumns[mes]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="mes" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].ExternalColumns[diaN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="diaN" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].ExternalColumns[trimestre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="trimestre" />
+                    <externalMetadataColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output].ExternalColumns[anio]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="anio" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Cargar Fechas CSV a dimFecha.Paths[Flat File Source Output]"
+              endId="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha.Inputs[Entrada de destino de ADO NET]"
+              name="Flat File Source Output"
+              startId="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Limpiar dimFecha"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{F44ADE8F-A6A4-4332-913D-34B69C41DEA6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Limpiar dimFecha"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6CBEBA83-C92C-4FAA-916D-C44B3C505AC9}"
+          SQLTask:SqlStatementSource="delete dimFecha" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{2ADE3912-2E21-42DA-975F-29143853AA06}"
+      DTS:From="Package\Limpiar dimFecha"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Cargar Fechas CSV a dimFecha" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="237,42"
+          Id="Package\Cargar Fechas CSV a dimFecha"
+          TopLeft="440,207" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Limpiar dimFecha"
+          TopLeft="139.5,62.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="227.5,104.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="331,102.5"
+              Start="0,0"
+              End="331,95">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,47.25"
+                    Point2="0,51.25"
+                    Point3="4,51.25" />
+                  <mssgle:LineSegment
+                    End="327,51.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="327,51.25"
+                    Point2="331,51.25"
+                    Point3="331,55.25" />
+                  <mssgle:LineSegment
+                    End="331,95" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Cargar Fechas CSV a dimFecha">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas"
+          TopLeft="469.5,165.5" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha"
+          TopLeft="711,258" />
+        <EdgeLayout
+          Id="Package\Cargar Fechas CSV a dimFecha.Paths[Flat File Source Output]"
+          TopLeft="561,207.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="251.5,50.5"
+              Start="0,0"
+              End="251.5,43">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.25"
+                    Point2="0,25.25"
+                    Point3="4,25.25" />
+                  <mssgle:LineSegment
+                    End="247.5,25.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="247.5,25.25"
+                    Point2="251.5,25.25"
+                    Point3="251.5,29.25" />
+                  <mssgle:LineSegment
+                    End="251.5,43" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
