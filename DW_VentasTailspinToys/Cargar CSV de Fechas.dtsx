@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Cargar CSV de Fechas"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{40362069-4459-4EEB-8FFF-4D44EA54265B}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{0A8886CB-C0E1-4A02-AE1E-65896E76A816}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -604,33 +604,21 @@
         <NodeLayout
           Size="176,42"
           Id="Package\Limpiar dimFecha"
-          TopLeft="139.5,62.5" />
+          TopLeft="209.5,205.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="227.5,104.5">
+          TopLeft="385.5,227.25">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="331,102.5"
+              EndConnector="54.5,0"
               Start="0,0"
-              End="331,95">
+              End="47,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,47.25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,47.25"
-                    Point2="0,51.25"
-                    Point3="4,51.25" />
-                  <mssgle:LineSegment
-                    End="327,51.25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="327,51.25"
-                    Point2="331,51.25"
-                    Point3="331,55.25" />
-                  <mssgle:LineSegment
-                    End="331,95" />
+                    End="47,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -650,37 +638,25 @@
         <NodeLayout
           Size="183,42"
           Id="Package\Cargar Fechas CSV a dimFecha\Leer CSV dimFechas"
-          TopLeft="469.5,165.5" />
+          TopLeft="480.5,255.5" />
         <NodeLayout
           Size="203,42"
           Id="Package\Cargar Fechas CSV a dimFecha\Cargar datos a dimFecha"
           TopLeft="711,258" />
         <EdgeLayout
           Id="Package\Cargar Fechas CSV a dimFecha.Paths[Flat File Source Output]"
-          TopLeft="561,207.5">
+          TopLeft="663.5,277.75">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="251.5,50.5"
+              EndConnector="47.5,0"
               Start="0,0"
-              End="251.5,43">
+              End="40,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,21.25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.25"
-                    Point2="0,25.25"
-                    Point3="4,25.25" />
-                  <mssgle:LineSegment
-                    End="247.5,25.25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="247.5,25.25"
-                    Point2="251.5,25.25"
-                    Point3="251.5,29.25" />
-                  <mssgle:LineSegment
-                    End="251.5,43" />
+                    End="40,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
