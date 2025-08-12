@@ -8,7 +8,7 @@ CREATE TABLE dimFecha (
     fechaKey INT PRIMARY KEY,
     fechaCompleta DATE NOT NULL,
     dia VARCHAR(20) NOT NULL,
-	diaN VARCHAR(20) NOT NULL,
+    diaN VARCHAR(20) NOT NULL,
     mes VARCHAR(20) NOT NULL,
     trimestre VARCHAR(20) NOT NULL,
     anio VARCHAR(20) NOT NULL
@@ -41,14 +41,14 @@ GO
 
 CREATE TABLE factVentas (
     ventaKey INT IDENTITY(1,1) PRIMARY KEY,
-	numeroOrden VARCHAR(10) NOT NULL,
+    numeroOrden VARCHAR(10) NOT NULL,
     fechaPedidoKey INT NOT NULL,
     fechaEnvioKey INT NOT NULL,
     productoKey INT NOT NULL,
     estadoKey INT NOT NULL,
     cantidad INT NOT NULL,
     precioUnitario DECIMAL(10,2) NOT NULL,
-	codigoPromocion VARCHAR(50) NOT NULL,
+    codigoPromocion VARCHAR(50) NOT NULL,
     montoDescuento DECIMAL(10,2) NOT NULL,
     montoTotal DECIMAL(12,2) NOT NULL,
     CONSTRAINT fkFactVentasProducto FOREIGN KEY (productoKey) REFERENCES dimProducto(productoKey),
